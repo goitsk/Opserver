@@ -43,7 +43,7 @@ namespace StackExchange.Opserver.Monitoring
 
         private static ConnectionOptions GetConnectOptions(string machineName)
         {
-            if (machineName == Environment.MachineName)
+            if (string.Equals(machineName, Environment.MachineName, StringComparison.InvariantCultureIgnoreCase))
                 return _localOptions;
 
             switch (machineName)
